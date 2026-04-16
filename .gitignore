@@ -1,0 +1,13 @@
+#MATLAB
+*.asv
+*.m~
+*.mex*
+slprj/
+*.slxc
+codegen/
+*.autosave
+*.original
+
+#Sistema
+.DS_Store
+Thumbs.db
