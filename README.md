@@ -32,7 +32,7 @@ city infrastructures.
 - MATLAB / Simulink
 - TrueTime 2.0
 - Fuzzy Logic Toolbox
-- Neural Network Fitting (Levenberg-Marquardt)
+- Neural Network Fitting
 
 ## Key Results
 - Neural Network R² ≈ 0.992 on test set
@@ -45,4 +45,4 @@ city infrastructures.
 
 /results → Performance plots and metrics
 
-/thesis → Full thesis PDF
+/thesis → Full thesis PDF/pptx
