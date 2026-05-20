@@ -1,48 +1,34 @@
-# Smart Traffic Intersection Control: Fuzzy Logic vs Neural Network
+# Gestione smart di un’intersezione stradale semaforizzata: confronto tra logica fuzzy e rete neurale supervisionata
 
-**Bachelor's Thesis** – Computer Engineering  
+**Tesi di Laurea Triennale** – Ingegneria Informatica  
 Università degli Studi di Enna "Kore" | A.A. 2024/2025  
-Author: Simone Giovanni Matraxia | Supervisor: Prof. Giovanni Pau  
-Grade: 98/110
+Autore: Simone Giovanni Matraxia | Relatore: Prof. Giovanni Pau  
+Voto: 98/110
 
 ---
 
 ## Abstract
 
-Urban traffic congestion remains a persistent challenge for city administrations,
-particularly when traditional fixed-time traffic lights are used due to their inherent
-rigidity. This thesis investigates the design of an adaptive and intelligent traffic
-light control system capable of dynamically responding to real-time traffic conditions.
-
-The study builds upon a previously developed fuzzy-logic controller designed for an
-asymmetric intersection in the city of Caltanissetta, Italy. Starting from this
-expert-system approach, the work introduces an Artificial Neural Network (ANN) trained
-through supervised learning to replicate and potentially enhance the decision-making
-process of the fuzzy controller.
-
-Experimental results show that the trained neural network successfully reproduces
-the behavior of the fuzzy controller while eliminating the need for manual rule
-calibration. This data-driven approach improves system scalability and adaptability,
-offering a promising solution for intelligent traffic management within modern smart
-city infrastructures.
+La congestione del traffico urbano è un problema che le amministrazioni locali faticano a gestire utilizzando i classici semafori a tempo fisso, a causa della loro intrinseca rigidità. Questo elaborato di tesi affronta la problematica proponendo un sistema di controllo semaforico intelligente e adattivo, capace di reagire in tempo reale ai volumi di traffico. Partendo da un controllore basato su logica Fuzzy, precedentemente sviluppato per un incrocio asimmetrico della città di Caltanissetta, l’architettura è stata evoluta introducendo una Rete Neurale Artificiale (ANN). L’algoritmo di apprendimento supervisionato è stato addestrato sfruttando un ampio dataset estratto dalle simulazioni del sistema esperto originale. L’intero ambiente è stato testato in
+MATLAB/Simulink avvalendosi della libreria TrueTime. I risultati dimostrano che la rete neurale riesce ad emulare perfettamente le decisioni logiche del controllore Fuzzy, garantendo gli stessi tempi medi di attesa ma rimuovendo l’enorme limite della calibrazione manuale delle regole, offrendo così una
+soluzione altamente migliorabile per le moderne Smart Cities.
 
 ---
 
-## Technologies
+## Tecnologie
 - MATLAB / Simulink
 - TrueTime 2.0
 - Fuzzy Logic Toolbox
 - Neural Network Fitting
 
-## Key Results
-- Neural Network R² ≈ 0.992 on test set
-- Average wait times: Fuzzy ~35.8s vs NN ~36.3s (S1/S2)
-- NN eliminates manual rule calibration
+## Risultati Principali
+- R² della Rete Neurale ≈ 0.992 sul set di test
+- Tempi di attesa medi: Fuzzy ~35.8s vs NN ~36.3s (S1/S2)
+- La rete neurale elimina la necessità di calibrazione manuale delle regole
 
+## Struttura della Repository
+/src → File sorgente MATLAB/Simulink (.m, .slx)
 
-## Repository Structure
-/src → MATLAB/Simulink source files (.m, .slx)
+/risultati → Grafici delle prestazioni e metriche
 
-/results → Performance plots and metrics
-
-/thesis → Full thesis PDF/pptx
+/tesi → Tesi completa in PDF/pptx
