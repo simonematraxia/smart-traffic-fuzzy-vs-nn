@@ -1,5 +1,5 @@
-%% performance_metrics.m - Confronto performance FUZZY vs NN
-% File richiesti:
+%% performance_metrics.m - Performance Comparison: FUZZY vs NN
+% Required files:
 %   controller_data_fuzzy_latest.mat -> log_hours_passed,
 %                                       log_fuzzy_timeS1_2, log_fuzzy_timeS3,
 %                                       log_red_timeS1_2,   log_red_timeS3
@@ -14,7 +14,7 @@ cFuzzy = [0.22 0.49 0.72];
 cNN    = [0.89 0.44 0.13];
 
 % ============================================================
-%% CARICA DATI
+%% LOAD DATA
 % ============================================================
 ctrl_F      = load('controller_data_fuzzy.mat');
 sim_hours_F = ctrl_F.log_hours_passed;
@@ -31,7 +31,7 @@ rS12_NN      = ctrl_NN.log_red_timeS1_2(:);
 rS3_NN       = ctrl_NN.log_red_timeS3(:);
 
 % ============================================================
-%% CARICA DATASET
+%% LOAD DATASET
 % ============================================================
 ds_F  = load('dataset_fuzzy_test.mat');
 ds_NN = load('dataset_NN_test.mat');
@@ -42,7 +42,7 @@ n    = min(length(Y_F), length(Y_NN));
 Y_F  = Y_F(1:n);
 Y_NN = Y_NN(1:n);
 % ============================================================
-%% STATISTICHE FUZZY
+%% FUZZY STATISTICS
 % ============================================================
 n_cyc_S12_F = length(gS12_F);   n_cyc_S3_F = length(gS3_F);
 avg_gS12_F  = mean(gS12_F);     avg_gS3_F  = mean(gS3_F);
@@ -62,7 +62,7 @@ avg_rS3_F  = mean(rS3_F);  std_rS3_F  = std(rS3_F);
 med_rS3_F  = median(rS3_F);  p95_rS3_F  = prctile(rS3_F,95);  max_rS3_F  = max(rS3_F);
 
 % ============================================================
-%% STATISTICHE NN
+%% NN STATISTICS
 % ============================================================
 n_cyc_S12_NN = length(gS12_NN);   n_cyc_S3_NN = length(gS3_NN);
 avg_gS12_NN  = mean(gS12_NN);     avg_gS3_NN  = mean(gS3_NN);
@@ -82,53 +82,53 @@ avg_rS3_NN  = mean(rS3_NN);  std_rS3_NN  = std(rS3_NN);
 med_rS3_NN  = median(rS3_NN);  p95_rS3_NN  = prctile(rS3_NN,95);  max_rS3_NN  = max(rS3_NN);
 
 % ============================================================
-%% STAMPA
+%% CONSOLE OUTPUT
 % ============================================================
 fprintf('==========================================================================\n');
-fprintf('=== FUZZY  (%.2f ore simulate | %d cicli S1/S2 | %d cicli S3) ===\n', ...
+fprintf('=== FUZZY  (%.2f simulated hours | %d S1/S2 cycles | %d S3 cycles) ===\n', ...
     sim_hours_F, n_cyc_S12_F, n_cyc_S3_F);
 fprintf('--------------------------------------------------------------------------\n');
-fprintf('[Verde S1/S2] media=%5.1f s | med=%5.1f s | std=%4.1f s | p95=%5.1f s | max=%5.1f s\n', ...
+fprintf('[Green S1/S2  ] mean=%5.1f s | med=%5.1f s | std=%4.1f s | p95=%5.1f s | max=%5.1f s\n', ...
     avg_gS12_F, med_gS12_F, std_gS12_F, p95_gS12_F, max_gS12_F);
-fprintf('[Verde S3   ] media=%5.1f s | med=%5.1f s | std=%4.1f s | p95=%5.1f s | max=%5.1f s\n', ...
+fprintf('[Green S3     ] mean=%5.1f s | med=%5.1f s | std=%4.1f s | p95=%5.1f s | max=%5.1f s\n', ...
     avg_gS3_F, med_gS3_F, std_gS3_F, p95_gS3_F, max_gS3_F);
-fprintf('[Estensioni ] S1/S2: %d/%d (%.1f%%), media=%.1f s extra | S3: %d/%d (%.1f%%), media=%.1f s extra\n', ...
+fprintf('[Extensions   ] S1/S2: %d/%d (%.1f%%), mean=%.1f s extra | S3: %d/%d (%.1f%%), mean=%.1f s extra\n', ...
     n_ext_S12_F, n_cyc_S12_F, pct_ext_S12_F, mean_ext_S12_F, ...
     n_ext_S3_F,  n_cyc_S3_F,  pct_ext_S3_F,  mean_ext_S3_F);
-fprintf('[Attesa S1/S2] media=%5.1f s | med=%5.1f s | std=%4.1f s | p95=%5.1f s | max=%5.1f s\n', ...
+fprintf('[Waiting S1/S2] mean=%5.1f s | med=%5.1f s | std=%4.1f s | p95=%5.1f s | max=%5.1f s\n', ...
     avg_rS12_F, med_rS12_F, std_rS12_F, p95_rS12_F, max_rS12_F);
-fprintf('[Attesa S3   ] media=%5.1f s | med=%5.1f s | std=%4.1f s | p95=%5.1f s | max=%5.1f s\n', ...
+fprintf('[Waiting S3   ] mean=%5.1f s | med=%5.1f s | std=%4.1f s | p95=%5.1f s | max=%5.1f s\n', ...
     avg_rS3_F, med_rS3_F, std_rS3_F, p95_rS3_F, max_rS3_F);
 
-fprintf('\n=== NN  (%.2f ore simulate | %d cicli S1/S2 | %d cicli S3) ===\n', ...
+fprintf('\n=== NN  (%.2f simulated hours | %d S1/S2 cycles | %d S3 cycles) ===\n', ...
     sim_hours_NN, n_cyc_S12_NN, n_cyc_S3_NN);
 fprintf('--------------------------------------------------------------------------\n');
-fprintf('[Verde S1/S2] media=%5.1f s | med=%5.1f s | std=%4.1f s | p95=%5.1f s | max=%5.1f s\n', ...
+fprintf('[Green S1/S2  ] mean=%5.1f s | med=%5.1f s | std=%4.1f s | p95=%5.1f s | max=%5.1f s\n', ...
     avg_gS12_NN, med_gS12_NN, std_gS12_NN, p95_gS12_NN, max_gS12_NN);
-fprintf('[Verde S3   ] media=%5.1f s | med=%5.1f s | std=%4.1f s | p95=%5.1f s | max=%5.1f s\n', ...
+fprintf('[Green S3     ] mean=%5.1f s | med=%5.1f s | std=%4.1f s | p95=%5.1f s | max=%5.1f s\n', ...
     avg_gS3_NN, med_gS3_NN, std_gS3_NN, p95_gS3_NN, max_gS3_NN);
-fprintf('[Estensioni ] S1/S2: %d/%d (%.1f%%), media=%.1f s extra | S3: %d/%d (%.1f%%), media=%.1f s extra\n', ...
+fprintf('[Extensions   ] S1/S2: %d/%d (%.1f%%), mean=%.1f s extra | S3: %d/%d (%.1f%%), mean=%.1f s extra\n', ...
     n_ext_S12_NN, n_cyc_S12_NN, pct_ext_S12_NN, mean_ext_S12_NN, ...
     n_ext_S3_NN,  n_cyc_S3_NN,  pct_ext_S3_NN,  mean_ext_S3_NN);
-fprintf('[Attesa S1/S2] media=%5.1f s | med=%5.1f s | std=%4.1f s | p95=%5.1f s | max=%5.1f s\n', ...
+fprintf('[Waiting S1/S2] mean=%5.1f s | med=%5.1f s | std=%4.1f s | p95=%5.1f s | max=%5.1f s\n', ...
     avg_rS12_NN, med_rS12_NN, std_rS12_NN, p95_rS12_NN, max_rS12_NN);
-fprintf('[Attesa S3   ] media=%5.1f s | med=%5.1f s | std=%4.1f s | p95=%5.1f s | max=%5.1f s\n', ...
+fprintf('[Waiting S3   ] mean=%5.1f s | med=%5.1f s | std=%4.1f s | p95=%5.1f s | max=%5.1f s\n', ...
     avg_rS3_NN, med_rS3_NN, std_rS3_NN, p95_rS3_NN, max_rS3_NN);
 
-fprintf('\n=== DIFFERENZE (NN - FUZZY) ===\n');
+fprintf('\n=== DIFFERENCES (NN - FUZZY) ===\n');
 fprintf('--------------------------------------------------------------------------\n');
-fprintf('Delta verde medio   S1/S2: %+.2f s  |  S3: %+.2f s\n', ...
+fprintf('Delta mean green time     S1/S2: %+.2f s  |  S3: %+.2f s\n', ...
     avg_gS12_NN-avg_gS12_F, avg_gS3_NN-avg_gS3_F);
-fprintf('Delta %% estensioni  S1/S2: %+.1f%%   |  S3: %+.1f%%\n', ...
+fprintf('Delta extensions %%        S1/S2: %+.1f%%   |  S3: %+.1f%%\n', ...
     pct_ext_S12_NN-pct_ext_S12_F, pct_ext_S3_NN-pct_ext_S3_F);
-fprintf('Delta attesa media  S1/S2: %+.2f s  |  S3: %+.2f s\n', ...
+fprintf('Delta mean waiting time   S1/S2: %+.2f s  |  S3: %+.2f s\n', ...
     avg_rS12_NN-avg_rS12_F, avg_rS3_NN-avg_rS3_F);
 fprintf('==========================================================================\n');
 
 % ============================================================
-%% FIGURA 1 — Scatter ciclo per ciclo: andamento nel tempo
+%% FIGURE 1 — Cycle-by-cycle Scatter: trend over time
 % ============================================================
-figure('Name','Verdi per ciclo','Position',[100 100 1050 520]);
+figure('Name','Green time per cycle','Position',[100 100 1050 520]);
 
 subplot(2,2,1);
 plot(gS12_F, '.', 'Color', cFuzzy, 'MarkerSize', 8);
@@ -136,7 +136,7 @@ yline(MinGreen,'--k','LineWidth',1.2);
 yline(MaxGreen,'--k','LineWidth',1.2);
 ylim([MinGreen-5, MaxGreen+5]);
 yticks(30:10:MaxGreen+5);
-xlabel('Numero ciclo','FontSize',11); ylabel('Verde (s)','FontSize',11);
+xlabel('Cycle number','FontSize',11); ylabel('Green time (s)','FontSize',11);
 title('Fuzzy — S1/S2','FontSize',12,'FontWeight','bold'); grid on; set(gca,'FontSize',10);
 
 subplot(2,2,2);
@@ -145,7 +145,7 @@ yline(MinGreen,'--k','LineWidth',1.2);
 yline(MaxGreen,'--k','LineWidth',1.2);
 ylim([MinGreen-5, MaxGreen+5]);
 yticks(30:10:MaxGreen+5);
-xlabel('Numero ciclo','FontSize',11); ylabel('Verde (s)','FontSize',11);
+xlabel('Cycle number','FontSize',11); ylabel('Green time (s)','FontSize',11);
 title('Fuzzy — S3','FontSize',12,'FontWeight','bold'); grid on; set(gca,'FontSize',10);
 
 subplot(2,2,3);
@@ -154,7 +154,7 @@ yline(MinGreen,'--k','LineWidth',1.2);
 yline(MaxGreen,'--k','LineWidth',1.2);
 ylim([MinGreen-5, MaxGreen+5]);
 yticks(30:10:MaxGreen+5);
-xlabel('Numero ciclo','FontSize',11); ylabel('Verde (s)','FontSize',11);
+xlabel('Cycle number','FontSize',11); ylabel('Green time (s)','FontSize',11);
 title('NN — S1/S2','FontSize',12,'FontWeight','bold'); grid on; set(gca,'FontSize',10);
 
 subplot(2,2,4);
@@ -163,19 +163,19 @@ yline(MinGreen,'--k','LineWidth',1.2);
 yline(MaxGreen,'--k','LineWidth',1.2);
 ylim([MinGreen-5, MaxGreen+5]);
 yticks(30:10:MaxGreen+5);
-xlabel('Numero ciclo','FontSize',11); ylabel('Verde (s)','FontSize',11);
+xlabel('Cycle number','FontSize',11); ylabel('Green time (s)','FontSize',11);
 title('NN — S3','FontSize',12,'FontWeight','bold'); grid on; set(gca,'FontSize',10);
 
-sgtitle('Tempo di verde assegnato per ogni ciclo di simulazione', ...
+sgtitle('Assigned green time for each simulation cycle', ...
     'FontSize',13,'FontWeight','bold');
 
 
 % ============================================================
-%% FIGURA 2 — Tempi di attesa medi ± std: Fuzzy vs NN
+%% FIGURE 2 — Average waiting times ± std: Fuzzy vs NN
 % ============================================================
-figure('Name','Tempi di attesa','Position',[100 100 680 500]);
-labels_w  = categorical({'Attesa S1/S2','Attesa S3'}, ...
-                        {'Attesa S1/S2','Attesa S3'});
+figure('Name','Waiting times','Position',[100 100 680 500]);
+labels_w  = categorical({'S1/S2 Waiting Time','S3 Waiting Time'}, ...
+                        {'S1/S2 Waiting Time','S3 Waiting Time'});
 means_rF  = [avg_rS12_F,  avg_rS3_F ];
 means_rNN = [avg_rS12_NN, avg_rS3_NN];
 stds_rF   = [std_rS12_F,  std_rS3_F ];
@@ -195,7 +195,7 @@ for i = 1:2
         'FontSize',10,'FontWeight','bold','Color',cNN);
 end
 hold off;
-ylabel('Tempo medio di attesa (s)','FontSize',13);
-title('Tempi di attesa medi ± std — Fuzzy vs NN','FontSize',14,'FontWeight','bold');
+ylabel('Average waiting time (s)','FontSize',13);
+title('Average waiting times ± std — Fuzzy vs NN','FontSize',14,'FontWeight','bold');
 legend({'Fuzzy','NN'},'Location','best','FontSize',12);
 set(gca,'FontSize',12); grid on;

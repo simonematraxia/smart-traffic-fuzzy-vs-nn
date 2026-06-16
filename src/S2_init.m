@@ -1,16 +1,16 @@
 function S2_init
     ttInitKernel('prioFP');
     
-    % Dati iniziali per il semaforo
-    data.id_semaforo = 2;      % ID del semaforo (specifico per ogni kernel)
+    % Initial data for the traffic light
+    data.traffic_light_id = 2;      % Traffic light ID (specific to each kernel)
     
-    % Periodo del task (in questo caso ogni secondo)
-    periodo = 1;
+    % Task period (in this case, every second)
+    period = 1;
 
-    data.lastState = 1;        % rosso come stato iniziale (1 = rosso)
-    data.lostCount = 0;        % contatore di pacchetti persi
+    data.lastState = 1;        % red as initial state (1 = red)
+    data.lostCount = 0;        % lost packets counter
 
-    % Creazione del task periodico
+    % Creation of the periodic task
     starttime = str2double(get_param(bdroot,'StartTime'));
-    ttCreatePeriodicTask('semaforo_2', starttime, periodo, 'S_code', data);
+    ttCreatePeriodicTask('traffic_light_2', starttime, period, 'traffic_light_script', data);
 end

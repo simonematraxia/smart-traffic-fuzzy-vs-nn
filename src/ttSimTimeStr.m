@@ -1,7 +1,7 @@
 function s = ttSimTimeStr()
-% Restituisce il tempo TrueTime formattato come [HH:MM:SS]
+% Returns the TrueTime simulation time formatted as [HH:MM:SS]
 
-t = ttCurrentTime;                 % tempo simulazione in secondi
+t = ttCurrentTime;                 % Simulation time in seconds
 
 hour   = floor(mod(t/3600, 24));   % 0..23
 minute = floor(mod(t,3600)/60);    % 0..59
