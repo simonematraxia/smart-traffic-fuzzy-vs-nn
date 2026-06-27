@@ -8,6 +8,9 @@ codegen/
 *.autosave
 *.original
 
-#Sistema
+#System
 .DS_Store
 Thumbs.db
+
+#Editor
+.vscode/
