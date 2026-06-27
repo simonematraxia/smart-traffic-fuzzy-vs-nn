@@ -1,4 +1,4 @@
-# Smart Traffic Intersection Control: Fuzzy Logic vs Neural Network
+# Smart management of a signalized traffic intersection: a comparison between fuzzy logic and supervised neural networks 
 
 **Bachelor's Thesis** – Computer Engineering  
 Università degli Studi di Enna "Kore" | A.A. 2024/2025  
