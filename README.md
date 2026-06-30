@@ -44,8 +44,8 @@ To establish a baseline, a Fuzzy Logic expert system was first implemented. Subs
 
 <table>
   <tr>
-    <td><img src="assets/fuzzytoolbox.jpg" alt="Fuzzy Inference System"></td>
-    <td><img src="assets/nnfitting.jpg" alt="Neural Network Architecture"></td>
+    <td width="50%" align="center"><img src="assets/fuzzytoolbox.jpg" alt="Fuzzy Inference System" width="100%"></td>
+    <td width="50%" align="center"><img src="assets/nnfitting.jpg" alt="Neural Network Architecture" width="100%"></td>
   </tr>
   <tr>
     <td align="center"><i>Fuzzy Logic Designer (Mamdani)</i></td>
@@ -67,11 +67,11 @@ Both controllers were tested over 9 simulated hours. The Neural Network successf
 * **Accuracy**: The Neural Network achieved an R correlation coefficient of `0.9929` on the test set, with a Mean Squared Error (MSE) of `0.0322`.
 <table>
   <tr>
-    <td><img src="assets/nnresults.jpg" alt="Training + Testing Performance"></td>
-    <td><img src="assets/regression_plot.jpg" alt="Regression plot"></td>
+    <td width="50%" align="center"><img src="assets/nnresults.jpg" alt="Training State and Validation Performance" width="100%"></td>
+    <td width="50%" align="center"><img src="assets/regression_plot.jpg" alt="Regression Plot (R = 0.9929)" width="100%"></td>
   </tr>
   <tr>
-    <td align="center"><i>Training State, Validation and Test Performance</i></td>
+    <td align="center"><i>Training State and Validation Performance</i></td>
     <td align="center"><i>Regression Plot (R = 0.9929)</i></td>
   </tr>
 </table>
