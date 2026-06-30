@@ -98,7 +98,7 @@ Both controllers were tested over 9 simulated hours. The Neural Network successf
 
 1. Clone the repository to your local machine:
 ```bash
-git clone [https://github.com/simonematraxia/smart-traffic-fuzzy-vs-nn.git](https://github.com/simonematraxia/smart-traffic-fuzzy-vs-nn.git)
+git clone https://github.com/simonematraxia/smart-traffic-fuzzy-vs-nn.git
 cd smart-traffic-fuzzy-vs-nn
 ```
 2. Add the /src folder to your MATLAB path.
