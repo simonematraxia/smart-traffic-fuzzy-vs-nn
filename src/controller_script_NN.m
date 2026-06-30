@@ -320,7 +320,7 @@ end
         case 2
             % Save logs at the end of the simulation
             log_hours_passed = (ttCurrentTime-data.simStartTime)/3600;
-            save('controller_data_NN_latest.mat', 'log_msg_sent', 'log_hours_passed', 'log_NN_timeS1_2', 'log_NN_timeS3', 'log_red_timeS1_2', 'log_red_timeS3');
+            save('NNcontroller_data_latest.mat', 'log_msg_sent', 'log_hours_passed', 'log_NN_timeS1_2', 'log_NN_timeS3', 'log_red_timeS1_2', 'log_red_timeS3');
 
             % Dataset for the neural network
             save('dataset_NN_latest.mat', 'ds_X', 'ds_Y');

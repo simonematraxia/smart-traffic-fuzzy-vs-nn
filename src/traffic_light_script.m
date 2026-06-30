@@ -77,7 +77,7 @@ end
             
         otherwise
             % Save logs
-            save('traffic_light_data_latest.mat', 'log_msg_received');
+            save('trafficlight_data_latest.mat', 'log_msg_received');
             exectime = -1;
     end
 end
